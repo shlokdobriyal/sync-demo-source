@@ -17,5 +17,5 @@ jobs:
 
       - name: Push to Destination Repo
         run: |
-          git remote add mirror https://x-access-token:${{ secrets.DESTINATION_TOKEN }}@github.com/ACCOUNT_B_USERNAME/REPO_NAME.git
+          git remote add mirror https://x-access-token:${{ secrets.DESTINATION_TOKEN }}@github.com/ishuD26/sync-demo-destination.git
           git push --mirror mirror
