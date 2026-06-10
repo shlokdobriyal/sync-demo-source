@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Source Repo
+      - name: Checkout Source Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Push to Destination Repo
+      - name: Mirror to Second Account
         run: |
           git remote add mirror https://x-access-token:${{ secrets.DESTINATION_TOKEN }}@github.com/ishuD26/sync-demo-destination.git
           git push --mirror mirror
