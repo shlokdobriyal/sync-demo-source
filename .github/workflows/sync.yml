@@ -1,0 +1,21 @@
+name: Sync Repository
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to Destination Repo
+        run: |
+          git remote add mirror https://x-access-token:${{ secrets.DESTINATION_TOKEN }}@github.com/ACCOUNT_B_USERNAME/REPO_NAME.git
+          git push --mirror mirror
